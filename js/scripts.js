@@ -1,6 +1,6 @@
 //
 // Scripts
-// 
+//
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
     };
 
-    // Shrink the navbar 
+    // Shrink the navbar
     navbarShrink();
 
     // Shrink the navbar when page is scrolled
@@ -46,4 +46,17 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+});
+
+// Contact Form
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    for (let pair of formData.entries()) {
+        console.log(pair[0] + ', ' + pair[1]); // Debug
+    }
 });
