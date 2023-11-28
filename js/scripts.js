@@ -1,6 +1,6 @@
 //
 // Scripts
-// 
+//
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
     };
 
-    // Shrink the navbar 
+    // Shrink the navbar
     navbarShrink();
 
     // Shrink the navbar when page is scrolled
@@ -46,4 +46,22 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+});
+
+// Contact Form
+
+
+emailjs.init('V3h_lMcmONQHTUY6z'); // Public key
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    for (let pair of formData.entries()) {
+        console.log(pair[0] + ', ' + pair[1]); // Debug
+    }
+    emailjs.sendForm('service_6dvozit', 'template_juh3npb', this)
+    document.getElementById('submitButton-div').innerHTML = '<p class="text-center" style="color:aliceblue;font-size:24px">¡Gracias por su mensaje!<br>Nos pondremos en contacto con usted lo más pronto posible.</p>';
 });
